@@ -7,8 +7,8 @@ import retrofit2.http.GET
 
 
 interface RetrofitService {
-         @GET("state_district_wise.json")
-         fun getCovidData() : Call<TrackerClass>
+         @GET("key-value-stores/toDWvRj1JpTXiM8FF/records/LATEST?disableRedirect=true")
+         fun getCovidData() : Call<Tracker>
 
          companion object {
 
@@ -18,7 +18,7 @@ interface RetrofitService {
 
                  if (retrofitService == null) {
                      val retrofit = Retrofit.Builder()
-                         .baseUrl("https://api.covid19india.org/")
+                         .baseUrl("https://api.apify.com/v2/")
                          .addConverterFactory(GsonConverterFactory.create())
                          .build()
                      retrofitService = retrofit.create(RetrofitService::class.java)
